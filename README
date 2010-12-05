@@ -1,0 +1,17 @@
+String::Fmt 0.00_1
+==================
+
+Smart sprintf-style string formatting for strings, arrays, and hashes
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+    parent
+
+COPYRIGHT AND LICENSE
+
+Copyright 2010 Nick Patch
+
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
