@@ -20,9 +20,14 @@ sub fmt {
 
     if (!$type || $type eq 'SCALAR') {
         $format = $SCALAR_FORMAT unless defined $format;
+
         return sprintf $format, $value;
     }
     elsif ($type eq 'ARRAY') {
+        $format    = $ARRAY_FORMAT    unless defined $format;
+        $separator = $ARRAY_SEPARATOR unless defined $separator;
+
+        return join $separator, map { sprintf $format, $_ } @$value;
     }
     elsif ($type eq 'HASH') {
     }

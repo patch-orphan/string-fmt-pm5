@@ -12,9 +12,7 @@ use ok 'String::Fmt', qw( fmt );
 
 # L<S02/"Names and Variables"/"format an array value"
 #   "supply a second argument">
-TODO: {
-    local $TODO = 'fmt(ARRAY) NYI';
-
+{
     is fmt([1.3, 2.4, 3], "%d", "_"), "1_2_3", "fmt() works with plain lists";
     my @list = 'a'..'c';
     is fmt(\@list, '<%s>', ':'), '<a>:<b>:<c>', 'fmt() works with @ array';
