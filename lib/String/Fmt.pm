@@ -11,7 +11,7 @@ our %EXPORT_TAGS = ( all => \@EXPORT_OK );
 my $SCALAR_FORMAT   = "%s";
 my $ARRAY_FORMAT    = "%s";
 my $ARRAY_SEPARATOR = " ";
-my $HASH_FORMAT     = "%s\n%s";
+my $HASH_FORMAT     = "%s\t%s";
 my $HASH_SEPARATOR  = "\n";
 
 sub fmt {
@@ -27,9 +27,17 @@ sub fmt {
         $format    = $ARRAY_FORMAT    unless defined $format;
         $separator = $ARRAY_SEPARATOR unless defined $separator;
 
-        return join $separator, map { sprintf $format, $_ } @$value;
+        return join $separator,
+                map { sprintf $format, $_ }
+                    @$value;
     }
     elsif ($type eq 'HASH') {
+        $format    = $HASH_FORMAT    unless defined $format;
+        $separator = $HASH_SEPARATOR unless defined $separator;
+
+        return join $separator,
+                map { sprintf $format, $_, $value->{$_} }
+               keys %$value;
     }
 
     return;

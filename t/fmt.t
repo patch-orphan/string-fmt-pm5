@@ -26,9 +26,7 @@ use ok 'String::Fmt', qw( fmt );
 }
 
 # L<S02/"Names and Variables"/"hash value" "formats for both key and value">
-TODO: {
-    local $TODO = 'fmt(HASH) NYI';
-
+{
     my $hash = {
         a => 1.3,
         b => 2.4,
@@ -61,9 +59,7 @@ TODO: {
 }
 
 # Test defaults on $comma
-TODO: {
-    local $TODO = 'fmt() default seperator NYI';
-
+{
     is fmt([1..3], "%d"), "1 2 3", 'default $comma for array';
 
     my $hash = {
@@ -79,9 +75,7 @@ TODO: {
 }
 
 # fmt() without arguments
-TODO: {
-    local $TODO = 'fmt() default format NYI';
-
+{
     is fmt(1), '1', 'scalar fmt() without $fmt';
     is fmt({1=>"a"}), "1\ta", 'pair fmt() without $fmt';
     is fmt([1,2]), '1 2', 'list fmt() without $fmt';
