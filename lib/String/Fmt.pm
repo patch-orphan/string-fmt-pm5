@@ -19,6 +19,7 @@ sub fmt {
     my $type = ref $value;
 
     if (!$type || $type eq 'SCALAR') {
+        $value  = $$value        if $type eq 'SCALAR';
         $format = $SCALAR_FORMAT unless defined $format;
 
         return sprintf $format, $value;
