@@ -4,12 +4,10 @@ use ok 'String::Fmt', qw( fmt );
 
 # L<S02/"Names and Variables"/"formatted representation"
 #   of "any scalar value" "fmt(SCALAR, '%03d')">
-TODO: {
-    local $TODO = 'fmt(SCALAR) NYI';
-
+{
     is fmt("Hi", "[%s]"), "[Hi]", 'fmt() works with %s';
     is fmt('3.141', "[%d]"), "[3]", "fmt() works with %d";
-    is fmt(5.6, '%f'), '5.6', 'fmt() works with %f';
+    is fmt(5.6, '%f'), '5.600000', 'fmt() works with %f';
 }
 
 # L<S02/"Names and Variables"/"format an array value"

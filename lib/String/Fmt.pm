@@ -8,7 +8,27 @@ our $VERSION     = '0.00_1';
 our @EXPORT_OK   = qw( fmt );
 our %EXPORT_TAGS = ( all => \@EXPORT_OK );
 
-sub fmt { }
+my $SCALAR_FORMAT   = "%s";
+my $ARRAY_FORMAT    = "%s";
+my $ARRAY_SEPARATOR = " ";
+my $HASH_FORMAT     = "%s\n%s";
+my $HASH_SEPARATOR  = "\n";
+
+sub fmt {
+    my ($value, $format, $separator) = @_;
+    my $type = ref $value;
+
+    if (!$type || $type eq 'SCALAR') {
+        $format = $SCALAR_FORMAT unless defined $format;
+        return sprintf $format, $value;
+    }
+    elsif ($type eq 'ARRAY') {
+    }
+    elsif ($type eq 'HASH') {
+    }
+
+    return;
+}
 
 1;
 
