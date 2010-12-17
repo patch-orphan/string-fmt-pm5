@@ -24,7 +24,8 @@ sub fmt {
 
         return sprintf $format, $value;
     }
-    elsif ($type eq 'ARRAY') {
+    elsif ($type eq 'ARRAY' || $type eq 'GLOB') {
+        $value = [ map { chomp; $_ } <$value> ] if $type eq 'GLOB';
         $format    = $ARRAY_FORMAT    unless defined $format;
         $separator = $ARRAY_SEPARATOR unless defined $separator;
 

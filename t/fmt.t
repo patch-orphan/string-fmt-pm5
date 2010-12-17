@@ -1,4 +1,4 @@
-use Test::More tests => 23;
+use Test::More tests => 24;
 
 use ok 'String::Fmt', qw( fmt );
 
@@ -85,3 +85,13 @@ TODO: {
     is fmt([1,2]), '1 2', 'array fmt() without $fmt';
     is fmt({1=>"a"}), "1\ta", 'hash fmt() without $fmt';
 }
+
+# fmt() with filehandle
+{
+    is fmt(\*DATA, "'%s'", ', '), "'a', 'b', 'c'", 'fmt() works with filehandle';
+}
+
+__DATA__
+a
+b
+c
